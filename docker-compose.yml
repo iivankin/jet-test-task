@@ -1,0 +1,18 @@
+name: 'jet-test-task'
+
+services:
+  postgres:
+    image: postgres:17.1-alpine3.20
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: jet-user
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: jet-db
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_storage:/var/lib/postgresql/data
+
+volumes:
+  postgres_storage:
